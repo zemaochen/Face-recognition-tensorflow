@@ -15,7 +15,7 @@ def open_camera(window_name, camera_idx):
         cv2.imshow(window_name, frame)#该方法就是现实该图像
         c = cv2.waitKey(10)
         if c & 0xFF == ord('y'):
-            cv2.imwrite("img/yhy/" + str(i) + ".png", frame)
+            cv2.imwrite("img/yhy0/" + str(i) + ".png", frame)
             i=i+1
             continue
         if c & 0xFF == ord('q'):#q退出视频

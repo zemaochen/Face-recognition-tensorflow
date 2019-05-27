@@ -52,3 +52,27 @@ def read_path(path_name):
             if dir_item.endswith('.jpg'):
                 #读取图片
                 image=cv2.imread(full_path)
+                #调整图片大小
+                image=revise_image(image,IMAGE_SIZE,IMAGE_SIZE)
+
+                #添加图片
+                images.append(image)
+                labels.append(path_name)
+    return images,labels
+
+#读取训练集数据
+def load_dataset(path_name):
+    images,labels=read_path(path_name)
+
+    #生成数组
+    images=np.array(images)
+    print(images.shape)
+
+    #标注数据
+    labels=np.array(label[-1:] for label in labels)
+
+    return images,labels
+
+
+if __name__ == '__main__':
+    images,labels=load_dataset("img/yhy0")
