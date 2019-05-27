@@ -23,8 +23,10 @@ def get_the_data_set(window_name, camera_idx, catch_pic_num, path_name):
 
         # 人脸检测，1.2和2分别为图片缩放比例和需要检测的有效点数
         faceRects = classfier.detectMultiScale(gray, scaleFactor = 1.2, minNeighbors = 3, minSize = (32, 32))
-        if len(faceRects) > 0:  # 大于0则检测到人脸
-            for faceRect in faceRects:  # 单独框出每一张人脸
+        # 大于0则检测到人脸
+        if len(faceRects) > 0:
+            # 单独框出每一张人脸
+            for faceRect in faceRects:
                 x, y, w, h = faceRect
 
                 # 将当前帧保存为图片
@@ -33,7 +35,8 @@ def get_the_data_set(window_name, camera_idx, catch_pic_num, path_name):
                 cv2.imwrite(img_name, image)
 
                 num += 1
-                if num > (catch_pic_num):  # 如果超过指定最大保存数量退出循环
+                # 如果超过指定最大保存数量退出循环
+                if num > (catch_pic_num):
                     break
 
                 # 画出矩形框
@@ -57,4 +60,4 @@ def get_the_data_set(window_name, camera_idx, catch_pic_num, path_name):
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-    get_the_data_set("截取人脸", 0, 1000, 'img/ljx')
+    get_the_data_set("截取人脸", 0, 1, 'img/test')
