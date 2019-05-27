@@ -1,5 +1,4 @@
 import os
-import sys
 import numpy as np
 import cv2
 
@@ -66,7 +65,7 @@ def load_dataset(path_name):
 
     #生成数组
     images=np.array(images)
-    print(images.shape)
+    #print(images.shape)
 
     #标注数据
     labels=np.array(label[-1:] for label in labels)
